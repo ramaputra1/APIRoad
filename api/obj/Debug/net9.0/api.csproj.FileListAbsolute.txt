@@ -295,3 +295,6 @@ C:\Users\ramaa\Desktop\FINSHARK1\api\obj\Debug\net9.0\refint\api.dll
 C:\Users\ramaa\Desktop\FINSHARK1\api\obj\Debug\net9.0\api.pdb
 C:\Users\ramaa\Desktop\FINSHARK1\api\obj\Debug\net9.0\api.genruntimeconfig.cache
 C:\Users\ramaa\Desktop\FINSHARK1\api\obj\Debug\net9.0\ref\api.dll
+C:\Users\ramaa\Desktop\FINSHARK1\api\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\ramaa\Desktop\FINSHARK1\api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\ramaa\Desktop\FINSHARK1\api\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
