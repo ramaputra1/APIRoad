@@ -15,6 +15,6 @@ namespace api.Dtos.Stock
         public decimal LastDiv { get; set;}
         public string Industry { get; set;} = string.Empty;
         public long MarketCap { get; set;} 
-        // Disini harus nya Comments, tapi kita emoh
+        // Disini harus nya Comments, tapi kita emoh 
     }
 }

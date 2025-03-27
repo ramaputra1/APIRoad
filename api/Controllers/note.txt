@@ -1,3 +1,16 @@
+Controller:
+Untuk semua Endpoint kamu disini, CRUD kamu disini
+
+/* 
+Jadi, controller itu untuk: 
+1. control semua endpoint api nya.
+2. Menangani Request
+-Kembalikan Response 404 & 200
+*/
+
+
+--------------------------
+
 Injection:
 Penting, dalam Controller agar kita gaperlu buat object sendiri.
 

@@ -1,9 +1,4 @@
-/* 
-Jadi, controller itu untu
-1. control semua endpoint api nya.
-2. Menangani Request
--Kembalikan Response 404 & 200
-*/
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
