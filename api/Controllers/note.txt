@@ -1,0 +1,12 @@
+Injection:
+Penting, dalam Controller agar kita gaperlu buat object sendiri.
+
+Tinggal minta ASP buatin itu untuk kita (dengan memberi dependency di program.cs kita)
+
+✅ Dependency Injection (DI) = cara memberi object (dependency) dari luar, bukan membuat di dalam class.
+
+ASP.NET Core otomatis kasih object lewat constructor
+
+Kamu tinggal daftarkan dependency-nya di Program.cs
+
+Ini bikin kode kamu rapih, scalable, dan testable
