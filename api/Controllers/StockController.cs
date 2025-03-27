@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks; // Untuk Async kamu
 using api.Data; // Untuk import DBContext
+using api.Mappers;
 using api.Models; // Import Stock dari Models
 using Microsoft.AspNetCore.Http.HttpResults; // Tipe hasil (ga terlalu dipake)
 using Microsoft.AspNetCore.Mvc; // Untuk API control mu seperti HttpGet
@@ -31,7 +32,9 @@ namespace api.Controllers
         [HttpGet] // get (Read) ke api/stock
         public IActionResult GetAll() // IACTIONRESULT: interface yang memungkinkan kamu mengembalikan nilai Ok() atau NotFOund() Error seperti di ID bawah setelah ini
         {
-            var stocks = _context.Stocks.ToList(); // ambil semua data dari tabel stocks dan convert ke list
+            var stocks = _context.Stocks.ToList()
+            .Select(s => s.ToStockDto()); // ambil semua data dari tabel stocks dan convert ke list
+            // Bro disini ada .Select itu nanti yang akan memberi repsonse dari semua select dari Dtos
             return Ok(stocks);
         }
 
@@ -45,7 +48,7 @@ namespace api.Controllers
                 return NotFound(); // return error
             }
 
-            return Ok(stock); // return succes
+            return Ok(stock.ToStockDto()); // return succes // dan response ToStockDto mu
         }
     }
 }
