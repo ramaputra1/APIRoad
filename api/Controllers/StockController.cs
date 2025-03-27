@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks; // Untuk Async kamu
 using api.Data; // Untuk import DBContext
+using api.Dtos.Stock;
 using api.Mappers;
 using api.Models; // Import Stock dari Models
 using Microsoft.AspNetCore.Http.HttpResults; // Tipe hasil (ga terlalu dipake)
@@ -44,6 +45,40 @@ namespace api.Controllers
             }
 
             return Ok(stock.ToStockDto()); // return succes // dan response ToStockDto mu
+        }
+
+        // POST kitaaaa: ------------------------->
+
+        [HttpPost]
+        public IActionResult Create([FromBody] CreateStockRequestDto stockDto)
+        {
+            var stockModel = stockDto.ToStockFromCreateDTO();
+            _context.Stocks.Add(stockModel);
+            _context.SaveChanges();
+            return CreatedAtAction(nameof(GetById), new { id = stockModel.Id }, stockModel.ToStockDto());
+        }
+
+        // Put (Update) --------------->
+        [HttpPut]
+        [Route("{id}")]
+        public IActionResult Update([FromRoute] int id, [FromBody] UpdateStockRequestDto updateDto)
+        {
+            var stockModel = _context.Stocks.FirstOrDefault(x => x.Id == id); // searching function untuk pastiike data yang mau di update exist ga
+
+            if (stockModel == null)
+            {
+                return NotFound();
+            }
+            // belum pasti ini apa, mungkin apa yang diupdate untuk masuk ke database
+            stockModel.Symbol = updateDto.Symbol;
+            stockModel.CompanyName = updateDto.CompanyName;
+            stockModel.Purchase = updateDto.Purchase;
+            stockModel.LastDiv = updateDto.LastDiv;
+            stockModel.Industry = updateDto.Industry;
+            stockModel.MarketCap = updateDto.MarketCap;
+
+            _context.SaveChanges();
+            return Ok(stockModel.ToStockDto());
         }
     }
 }
